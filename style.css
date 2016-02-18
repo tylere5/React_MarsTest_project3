@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'digital-clock';
+  src: url("font/digital-dismay.otf");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  box-sizing: border-box; }
+
+html, body {
+  color: #222;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  height: 100%; }
+
+.wrapper {
+  display: flex;
+}
+
+header {
+  background-color: white;
+  height: 100vh;
+  max-width: 11vw;
+  flex: 0 1 20%;
+  /*position: relative;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+ font-size:16px;
+ color: #ffffff ;
+ font-family: Open Sans Light;
+ background-color: #FF8B69 ;
+ height: 100vh;
+ width: 100vw; }
+
+.test-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 80%;
+  background: linear-gradient (to bottom, #fd746c, #ff9068);
+}
+
+h1 {
+  color: #EDF1F2;
+  transform: translateX(38px) rotate(270deg);
+  font-size: 100px;
+  position: relative;
+  top: -11rem;
+  left: 0rem;
+}
+
+i.fa-space-shuttle {
+  transform: rotate(-90deg);
+  font-size: 4rem;
+  position: relative;
+  left: -5px;
+  top: -4px;
+}
+
+.rocket {
+  position: relative;
+  left: -9rem;
+  top: 1rem;
+  margin: 0;
+  font-size: 0.5rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  width: 100px;
+  height: 100px;
+  line-height: 1rem;
+  border-radius: 50%;
+  background: #fd746c;
+  background: linear-gradient(to top, #fd746c, #ff9068);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  border: 1px solid white;
+  background: #EDF1F2;
+  padding: 1rem 4rem;
+  color: #222;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+
+.test-button {
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  /*position: absolute;*/
+  /*left: 39rem;*/
+  /*top: 19rem;*/
+  /*z-index: 1000;*/
+}
+
+.clock {
+  position: relative;
+  opacity: 1;
+  border: 2px solid #ff9068;
+  font-family: Arial, sans-serif;
+  font-size: 4rem;
+  color: lightgreen;
+  width: 200px;
+  height: 75px;
+  background: black;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 2px lime, 0 0 8px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.8);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,8 +1,7 @@
 
 var React = require('react');
-var ReactDOM = require('react-dom');
 
-var App = React.createClass({
+var Welcome = React.createClass({
   render: function() {
     return (
       <div className="wrapper">
@@ -14,13 +13,6 @@ var App = React.createClass({
         </header>
         <div className="test-area">
           <div className="clock">
-            {/*<div className="clock-text">
-              <p>
-                <span>1</span>
-                <span>:</span>
-                <span>00</span>
-              </p>
-            </div>*/}
             <Timer/>
           </div>
           <div className="test-button">
@@ -35,18 +27,20 @@ var App = React.createClass({
 var Timer = React.createClass({
   getInitialState: function(){
     return {
-      secondsElapsed: 0
+      secondsElapsed: 60
     }
   },
 
   resetTimers: function(){
     clearInterval(this.interval);
-    this.setState({ secondsElapsed: 0 });
-    this.start();
+    this.setState({ secondsElapsed: 60 });
   },
 
   tick: function(){
-    this.setState({ secondsElapsed: this.state.secondsElapsed +1 });
+    this.setState({ secondsElapsed: this.state.secondsElapsed -1 });
+    if (this.state.secondsElapsed <= 0) {
+      this.resetTimers();
+    }
   },
 
   start: function(){
@@ -60,14 +54,11 @@ var Timer = React.createClass({
   render: function(){
     return (
     <p>
-      { this.props.name } has { this.state.secondsElapsed }s elapsed
-      <button onClick= {this.resetTimer} >RESET</button>
+      { this.props.name } { this.state.secondsElapsed }
     </p>
 
     );
     }
 });
 
-
-
-ReactDOM.render(<App />, document.querySelector('#mount-node'));
+module.exports = Welcome;

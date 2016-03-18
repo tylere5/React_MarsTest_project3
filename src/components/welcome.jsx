@@ -1,7 +1,13 @@
+import React from 'react';
+import {browserHistory} from 'react-router';
 
-var React = require('react');
 
 var Welcome = React.createClass({
+
+  takeQuiz: function(){
+    return this.props.history.push('/mars-test')
+  },
+
   render: function() {
     return (
       <div className="wrapper">
@@ -12,53 +18,13 @@ var Welcome = React.createClass({
           </div>
         </header>
         <div className="test-area">
-          <div className="clock">
-            <Timer/>
-          </div>
           <div className="test-button">
-            <button>Take Test</button>
+            <button onClick={this.takeQuiz}>Take Test</button>
           </div>
         </div>
       </div>
     )
   }
-});
-
-var Timer = React.createClass({
-  getInitialState: function(){
-    return {
-      secondsElapsed: 60
-    }
-  },
-
-  resetTimers: function(){
-    clearInterval(this.interval);
-    this.setState({ secondsElapsed: 60 });
-  },
-
-  tick: function(){
-    this.setState({ secondsElapsed: this.state.secondsElapsed -1 });
-    if (this.state.secondsElapsed <= 0) {
-      this.resetTimers();
-    }
-  },
-
-  start: function(){
-    this.interval = setInterval(this.tick, 1000);
-  },
-
-  componentDidMount: function(){
-    setTimeout(this.start, this.props.timeout);
-  },
-
-  render: function(){
-    return (
-    <p>
-      { this.props.name } { this.state.secondsElapsed }
-    </p>
-
-    );
-    }
 });
 
 module.exports = Welcome;

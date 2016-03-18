@@ -23,7 +23,7 @@ var NotFound = React.createClass({
                 <span>00</span>
               </p>
             </div>
-            <Timer/>
+            // <Timer/>
           </div>
           <div className="test-button">
             <button>Take Test</button>

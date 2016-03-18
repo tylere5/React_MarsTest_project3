@@ -158,6 +158,9 @@ button {
   text-transform: uppercase;
   border-radius: 2px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+  button.hidden {
+    display: none;
+    visibility: hidden; }
 
 .test-button {
   /*display: flex;
@@ -193,3 +196,6 @@ button {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
+  .clock.hidden {
+    opacity: 0;
+    right: -20px; }

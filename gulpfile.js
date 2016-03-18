@@ -11,17 +11,36 @@ var gulp = require('gulp'),
     webpack = require('webpack-stream'),
     historyApiFallback = require('connect-history-api-fallback');
 
+// gulp.task('compile-react', function() {
+// 	return gulp.src('./src/main.jsx')
+//     .pipe(plumber())
+// 		.pipe(babel({
+// 			presets: ['es2015', 'react']
+// 		}))
+// 		.pipe(gulp.dest('./build'));
+// });
+
 gulp.task('compile-react', function() {
 	return gulp.src('./src/main.jsx')
-    .pipe(plumber())
-		.pipe(babel({
-			presets: ['es2015', 'react']
-		}))
-		.pipe(browserify({
-			insertGlobals: true,
-			debug: true
-		}))
-		.pipe(gulp.dest('./build'));
+	.pipe(plumber())
+	.pipe(webpack({
+		output: {
+			filename: 'main.js'
+		},
+		module: {
+			loaders: [
+				{
+					test: /\.jsx?$/,
+					exclude: /node_modules/,
+					loader: 'babel-loader',
+					query: {
+						presets: ['react', 'es2015']
+					}
+				}
+			]
+		}
+	}))
+	.pipe(gulp.dest('./build'));
 });
 
 gulp.task('sass', function(){
@@ -56,26 +75,3 @@ gulp.task('browser-sync', ['compile-react', 'copy-html'], function() {
 });
 
 gulp.task('default', ['browser-sync']);
-
-gulp.task('compile-react', function() {
-	return gulp.src('./src/main.jsx')
-	.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-	.pipe(webpack({
-		output: {
-			filename: 'main.js'
-		},
-		module: {
-			loaders: [
-				{
-					test: /\.jsx?$/,
-					exclude: /node_modules/,
-					loader: 'babel-loader',
-					query: {
-						presets: ['react', 'es2015']
-					}
-				}
-			]
-		}
-	}))
-	.pipe(gulp.dest('./build'));
-});

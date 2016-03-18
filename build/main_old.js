@@ -64,15 +64,7 @@
 
 	var _welcome2 = _interopRequireDefault(_welcome);
 
-	var _accepted = __webpack_require__(219);
-
-	var _accepted2 = _interopRequireDefault(_accepted);
-
-	var _rejected = __webpack_require__(220);
-
-	var _rejected2 = _interopRequireDefault(_rejected);
-
-	var _ = __webpack_require__(221);
+	var _ = __webpack_require__(219);
 
 	var _2 = _interopRequireDefault(_);
 
@@ -88,8 +80,6 @@
 	      _react2.default.createElement(_reactRouter.Redirect, { from: '/', to: '/welcome' }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/welcome', component: _welcome2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '/mars-test', component: _questionPage2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: '/accepted', component: _accepted2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: '/rejected', component: _rejected2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: '*', component: _2.default })
 	    );
 	  }
@@ -24729,10 +24719,6 @@
 
 	'use strict';
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
 	var _reactRouter = __webpack_require__(159);
 
 	var _timer = __webpack_require__(217);
@@ -24741,146 +24727,68 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// var React = require('react');
+	var React = __webpack_require__(1);
 
-	var currentQuestion = {
-	  1: {
-	    question: 'Is this question 1?',
-	    answer: 'yes'
-	  },
-	  2: {
-	    question: 'Is this question 2?',
-	    answer: 'yes'
-	  },
-	  3: {
-	    question: 'Is this question 3?',
-	    answer: 'yes'
-	  },
-	  4: {
-	    question: '',
-	    answer: ''
-	  }
-	};
-
-	var Question = _react2.default.createClass({
+	var Question = React.createClass({
 	  displayName: 'Question',
 
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      start: false,
-	      currentQuestion: 1,
-	      correctAnswer: 0
-	    };
-	  },
-
-	  hidden: function hidden(notHidden) {
-	    if (this.state.start !== notHidden) {
-	      return "hidden";
-	    } else {
-	      return "";
-	    }
-	  },
-
-	  startTest: function startTest() {
-	    this.setState({ start: true });
-	  },
-
-	  generateQuestions: function generateQuestions() {
-	    return _react2.default.createElement(
-	      'span',
-	      null,
-	      currentQuestion[this.state.currentQuestion].question
-	    );
-	  },
-
-	  formSubmit: function formSubmit(event) {
-	    event.preventDefault();
-	    this.setState({ currentQuestion: this.state.currentQuestion + 1 });
-	    if (this.refs.userAnswer.value === currentQuestion[this.state.currentQuestion].answer) {
-	      this.setState({ correctAnswer: this.state.correctAnswer + 1 });
-	    };
-	    this.refs.userAnswer.value = "";
-	  },
-
-	  testResults: function testResults() {
-	    if (this.state.correctAnswer === 3) {
-	      _reactRouter.browserHistory.push('/accepted');
-	    } else {
-	      _reactRouter.browserHistory.push('/rejected');
-	    }
-	  },
-
-	  componentDidUpdate: function componentDidUpdate() {
-	    if (this.state.currentQuestion > 3) {
-	      this.setState({ start: false });
-	      this.testResults();
-	    };
-	  },
-
-	  componentWillReceiveProps: function componentWillReceiveProps() {
-	    if (status.timerStatus === 0) {
-	      _reactRouter.browserHistory.push('/rejected');
-	    };
-	  },
-
 	  render: function render() {
-	    return _react2.default.createElement(
+	    return React.createElement(
 	      'div',
 	      { className: 'wrapper' },
-	      _react2.default.createElement(
+	      React.createElement(
 	        'header',
 	        null,
-	        _react2.default.createElement(
+	        React.createElement(
 	          'h1',
 	          null,
 	          ' MARS '
 	        ),
-	        _react2.default.createElement(
+	        React.createElement(
 	          'div',
 	          { className: 'rocket' },
-	          _react2.default.createElement('i', { className: 'fa fa-space-shuttle' })
+	          React.createElement('i', { className: 'fa fa-space-shuttle' })
 	        )
 	      ),
-	      _react2.default.createElement(
+	      React.createElement(
 	        'div',
 	        { className: 'test-area' },
-	        _react2.default.createElement(
+	        React.createElement(
 	          'div',
-	          { className: "clock " + this.hidden(true) },
-	          _react2.default.createElement(
+	          { className: 'clock' },
+	          React.createElement(
 	            'div',
 	            { className: 'clock-text' },
-	            _react2.default.createElement('p', null)
-	          ),
-	          _react2.default.createElement(_timer2.default, { start: this.state.start })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'test-button' },
-	          _react2.default.createElement(
-	            'button',
-	            { type: 'button', className: "eval-start " + this.hidden(false), onClick: this.startTest },
-	            'Begin Evaluation'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: "question-pane " + this.hidden(true) },
-	          _react2.default.createElement(
-	            'form',
-	            null,
-	            _react2.default.createElement(
+	            React.createElement(
 	              'p',
 	              null,
-	              this.generateQuestions()
-	            ),
-	            _react2.default.createElement('input', { className: 'input-answer', ref: 'userAnswer', type: 'text', placeholder: 'Enter Answer' }),
-	            _react2.default.createElement(
-	              'button',
-	              { type: 'button', onClick: this.formSubmit },
-	              'Submit Answer'
+	              React.createElement(
+	                'span',
+	                null,
+	                '1'
+	              ),
+	              React.createElement(
+	                'span',
+	                null,
+	                ':'
+	              ),
+	              React.createElement(
+	                'span',
+	                null,
+	                '00'
+	              )
 	            )
+	          ),
+	          '// ',
+	          React.createElement(_timer2.default, null)
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'test-button' },
+	          React.createElement(
+	            'button',
+	            null,
+	            'Take Test'
 	          )
 	        )
 	      )
@@ -24913,7 +24821,7 @@
 
 	  resetTimers: function resetTimers() {
 	    clearInterval(this.interval);
-	    this.setState({ secondsElapsed: 0 });
+	    this.setState({ secondsElapsed: 60 });
 	  },
 
 	  tick: function tick() {
@@ -24924,20 +24832,11 @@
 	  },
 
 	  start: function start() {
-	    // this.setState(this.getInitialState());
-	    if (!this.interval) {
-	      this.interval = setInterval(this.tick, 1000);
-	    }
+	    this.interval = setInterval(this.tick, 1000);
 	  },
 
-	  componentWillReceiveProps: function componentWillReceiveProps(props) {
-	    if (props.start === true) {
-	      this.start();
-	    }
-	  },
-
-	  componentWillUnmount: function componentWillUnmount() {
-	    clearInterval(this.interval);
+	  componentDidMount: function componentDidMount() {
+	    setTimeout(this.start, this.props.timeout);
 	  },
 
 	  render: function render() {
@@ -24972,7 +24871,7 @@
 
 
 	  takeQuiz: function takeQuiz() {
-	    return this.props.history.push('/mars-test');
+	    return this.props.history.push('/question-page');
 	  },
 
 	  render: function render() {
@@ -25014,88 +24913,6 @@
 
 /***/ },
 /* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(159);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Accepted = _react2.default.createClass({
-	  displayName: 'Accepted',
-
-	  componentDidMount: function componentDidMount() {
-	    setTimeout(function () {
-	      _reactRouter.browserHistory.push('/welcome');
-	    }, 10000);
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'pass-message' },
-	      _react2.default.createElement(
-	        'h2',
-	        null,
-	        'Accepted!'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'You eagerly anticipate all the potatoes you will be eating!'
-	      )
-	    );
-	  }
-	});
-	module.exports = Accepted;
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(159);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Rejected = _react2.default.createClass({
-	  displayName: 'Rejected',
-
-	  componentDidMount: function componentDidMount() {
-	    setTimeout(function () {
-	      _reactRouter.browserHistory.push('/welcome');
-	    }, 10000);
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'reject-message' },
-	      _react2.default.createElement(
-	        'h2',
-	        null,
-	        'Rejected!'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'You are not worthy!'
-	      )
-	    );
-	  }
-	});
-	module.exports = Rejected;
-
-/***/ },
-/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

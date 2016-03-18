@@ -92,7 +92,12 @@ button {
   font-size: 1rem;
   text-transform: uppercase;
   border-radius: 2px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  &.hidden{
+    display: none;
+    visibility: hidden;
+  }
+ }
 
 .test-button {
   /*display: flex;
@@ -123,4 +128,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  &.hidden {
+    opacity: 0;
+    right: -20px;
+  }
 }

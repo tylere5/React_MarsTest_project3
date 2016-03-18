@@ -1,10 +1,83 @@
-import { Router, Route, browserHistory, Redirect } from 'react-router';
+import React from 'react';
+import {browserHistory} from 'react-router';
+import Timer from './timer.jsx';
+// var React = require('react');
 
-
-var React = require('react');
-
+var currentQuestion = {
+  1: {
+    question: 'Is this question 1?',
+    answer: 'yes'
+  },
+  2: {
+    question: 'Is this question 2?',
+    answer: 'yes'
+  },
+  3: {
+    question: 'Is this question 3?',
+    answer: 'yes'
+  },
+  4: {
+    question: '',
+    answer: ''
+  },
+};
 
 var Question = React.createClass({
+
+  getInitialState: function() {
+    return {
+      start: false,
+      currentQuestion: 1,
+      correctAnswer: 0,
+    };
+  },
+
+  hidden: function(notHidden) {
+  if(this.state.start !== notHidden) {
+    return "hidden";
+  } else {
+    return "";
+  }
+},
+
+  startTest: function() {
+    this.setState({ start: true })
+  },
+
+  generateQuestions: function() {
+    return (<span>{currentQuestion[this.state.currentQuestion].question}</span>);
+  },
+
+  formSubmit: function(event) {
+    event.preventDefault();
+    this.setState({currentQuestion: this.state.currentQuestion + 1});
+    if (this.refs.userAnswer.value === currentQuestion[this.state.currentQuestion].answer) {
+      this.setState({correctAnswer: this.state.correctAnswer + 1})
+    };
+    this.refs.userAnswer.value="";
+  },
+
+  testResults: function () {
+    if (this.state.correctAnswer === 3) {
+      browserHistory.push('/accepted');
+    } else {
+      browserHistory.push('/rejected');
+    }
+  },
+
+  componentDidUpdate: function() {
+    if(this.state.currentQuestion > 3){
+      this.setState({start: false});
+      this.testResults();
+    };
+  },
+
+  componentWillReceiveProps: function(){
+    if(status.timerStatus === 0){
+      browserHistory.push('/rejected');
+    };
+  },
+
   render: function() {
     return (
       <div className="wrapper">
@@ -15,60 +88,27 @@ var Question = React.createClass({
           </div>
         </header>
         <div className="test-area">
-          <div className="clock">
+          <div className= {"clock " + this.hidden(true)}>
             <div className="clock-text">
               <p>
-                <span>1</span>
-                <span>:</span>
-                <span>00</span>
               </p>
             </div>
-            <Timer/>
+              <Timer start={this.state.start}/>
           </div>
           <div className="test-button">
-            <button>Take Test</button>
+            <button type="button" className={"eval-start " + this.hidden(false)} onClick={this.startTest}>Begin Evaluation</button>
+          </div>
+          <div className={"question-pane " + this.hidden(true)}>
+            <form>
+              <p>{this.generateQuestions()}</p>
+              <input className="input-answer" ref="userAnswer" type="text" placeholder="Enter Answer"></input>
+              <button type="button" onClick = {this.formSubmit}>Submit Answer</button>
+            </form>
           </div>
         </div>
       </div>
     )
   }
 });
-
-var Timer = React.createClass({
-  getInitialState: function(){
-    return {
-      secondsElapsed: 0
-    }
-  },
-
-  resetTimers: function(){
-    clearInterval(this.interval);
-    this.setState({ secondsElapsed: 0 });
-    this.start();
-  },
-
-  tick: function(){
-    this.setState({ secondsElapsed: this.state.secondsElapsed +1 });
-  },
-
-  start: function(){
-    this.interval = setInterval(this.tick, 1000);
-  },
-
-  componentDidMount: function(){
-    setTimeout(this.start, this.props.timeout);
-  },
-
-  render: function(){
-    return (
-    <p>
-      { this.props.name } has { this.state.secondsElapsed }s elapsed
-    </p>
-
-    );
-    }
-});
-
-
 
 module.exports = Question;

@@ -25078,11 +25078,6 @@
 	        'h2',
 	        null,
 	        'Rejected!'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'You are not worthy!'
 	      )
 	    );
 	  }

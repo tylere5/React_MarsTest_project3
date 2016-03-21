@@ -10,7 +10,6 @@ var Rejected = React.createClass({
       return (
           <div className="reject-message">
             <h2>Rejected!</h2>
-            <p>You are not worthy!</p>
           </div>
       )
     }

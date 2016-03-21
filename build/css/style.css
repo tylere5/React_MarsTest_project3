@@ -45,6 +45,22 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* Pass/Fail Message Animation -------------------------------------------*/
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes blink {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 @font-face {
   font-family: 'digital-clock';
   src: url("font/digital-dismay.otf");
@@ -65,6 +81,7 @@ html, body {
   display: -ms-flexbox;
   display: flex; }
 
+/* Welcome Page Styles ---------------------------------------------------*/
 header {
   background-color: white;
   height: 100vh;
@@ -110,6 +127,8 @@ h1 {
   color: #EDF1F2;
   -webkit-transform: translateX(38px) rotate(270deg);
           transform: translateX(38px) rotate(270deg);
+  font-family: Arial;
+  font-weight: bold;
   font-size: 100px;
   position: relative;
   top: -11rem;
@@ -164,6 +183,7 @@ button {
     display: none;
     visibility: hidden; }
 
+/* Button & Clock Styles --------------------------------------------- */
 .test-button {
   color: red; }
 
@@ -196,6 +216,7 @@ button {
     opacity: 0;
     right: -20px; }
 
+/* Question Form Styles ------------------------------------------------- */
 .question-pane {
   background: black;
   font-size: 1.5rem;
@@ -207,11 +228,17 @@ button {
 
 .input-answer {
   border: 0;
+  padding: 12px 15px;
   font-size: 1rem;
   width: 100%; }
 
+/* Accepted/Rejected Page Styles ------------------------------------- */
 .pass-message, .reject-message {
-  font-size: 5rem;
+  -webkit-animation: blink 1.5s infinite;
+          animation: blink 1.5s infinite;
+  font-family: Arial;
+  font-size: 10rem;
+  font-weight: bold;
   text-transform: uppercase;
   color: white;
   text-align: center;

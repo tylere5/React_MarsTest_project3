@@ -1,5 +1,6 @@
 @import "reset";
 @import "accepted";
+@import "animations";
 
 @font-face {
   font-family: 'digital-clock';
@@ -19,6 +20,8 @@ html, body {
 .wrapper {
   display: flex;
 }
+
+/* Welcome Page Styles ---------------------------------------------------*/
 
 header {
   background-color: white;
@@ -50,6 +53,8 @@ body {
 h1 {
   color: #EDF1F2;
   transform: translateX(38px) rotate(270deg);
+  font-family: Arial;
+  font-weight: bold;
   font-size: 100px;
   position: relative;
   top: -11rem;
@@ -102,6 +107,8 @@ button {
   }
  }
 
+ /* Button & Clock Styles --------------------------------------------- */
+
 .test-button {
   color: red;
 }
@@ -131,6 +138,8 @@ button {
   }
 }
 
+/* Question Form Styles ------------------------------------------------- */
+
 .question-pane {
   background: black;
   font-size: 1.5rem;
@@ -144,12 +153,18 @@ button {
 
 .input-answer {
   border: 0;
+  padding: 12px 15px;
   font-size: 1rem;
   width: 100%;
 }
 
+/* Accepted/Rejected Page Styles ------------------------------------- */
+
 .pass-message, .reject-message {
-  font-size: 5rem;
+  animation: blink 1.5s infinite;
+  font-family: Arial;
+  font-size: 10rem;
+  font-weight: bold;
   text-transform: uppercase;
   color: white;
   text-align: center;

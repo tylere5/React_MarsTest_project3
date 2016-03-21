@@ -5,15 +5,15 @@ import Timer from './timer.jsx';
 
 var currentQuestion = {
   1: {
-    question: 'Is this question 1?',
+    question: 'Is Mars in the Milky Way Galaxy?',
     answer: 'yes'
   },
   2: {
-    question: 'Is this question 2?',
+    question: 'Has water been discovered on Mars?',
     answer: 'yes'
   },
   3: {
-    question: 'Is this question 3?',
+    question: 'Do you really, really want to go to Mars? Seriously?',
     answer: 'yes'
   },
   4: {
@@ -99,7 +99,7 @@ var Question = React.createClass({
             <button type="button" className={"eval-start " + this.hidden(false)} onClick={this.startTest}>Begin Evaluation</button>
           </div>
           <div className={"question-pane " + this.hidden(true)}>
-            <form>
+              <form>
               <p>{this.generateQuestions()}</p>
               <input className="input-answer" ref="userAnswer" type="text" placeholder="Enter Answer"></input>
               <button type="button" onClick = {this.formSubmit}>Submit Answer</button>

@@ -10,7 +10,7 @@ var Accepted = React.createClass({
       return (
           <div className="pass-message">
             <h2>Accepted!</h2>
-            <p>You eagerly anticipate all the potatoes you will be eating!</p>
+            {/*<p>Don't pack anything! You can't bring it anyways!</p>*/}
           </div>
       )
     }

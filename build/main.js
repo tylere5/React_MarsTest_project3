@@ -24745,15 +24745,15 @@
 
 	var currentQuestion = {
 	  1: {
-	    question: 'Is this question 1?',
+	    question: 'Is Mars in the Milky Way Galaxy?',
 	    answer: 'yes'
 	  },
 	  2: {
-	    question: 'Is this question 2?',
+	    question: 'Has water been discovered on Mars?',
 	    answer: 'yes'
 	  },
 	  3: {
-	    question: 'Is this question 3?',
+	    question: 'Do you really, really want to go to Mars? Seriously?',
 	    answer: 'yes'
 	  },
 	  4: {
@@ -25042,11 +25042,6 @@
 	        'h2',
 	        null,
 	        'Accepted!'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'You eagerly anticipate all the potatoes you will be eating!'
 	      )
 	    );
 	  }

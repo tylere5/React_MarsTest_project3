@@ -152,7 +152,9 @@ button {
   border: 1px solid white;
   background: #EDF1F2;
   padding: 1rem 4rem;
+  margin-top: 1rem;
   color: #222;
+  cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
   text-transform: uppercase;
@@ -163,13 +165,7 @@ button {
     visibility: hidden; }
 
 .test-button {
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
-  /*position: absolute;*/
-  /*left: 39rem;*/
-  /*top: 19rem;*/
-  /*z-index: 1000;*/ }
+  color: red; }
 
 .clock {
   position: relative;
@@ -199,3 +195,39 @@ button {
   .clock.hidden {
     opacity: 0;
     right: -20px; }
+
+.question-pane {
+  background: black;
+  font-size: 1.5rem;
+  padding: 2rem 2rem 2.5rem;
+  position: relative; }
+  .question-pane.hidden {
+    opacity: 0;
+    right: -50px; }
+
+.input-answer {
+  border: 0;
+  font-size: 1rem;
+  width: 100%; }
+
+.pass-message, .reject-message {
+  font-size: 5rem;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.pass-message {
+  background: green; }
+
+.reject-message {
+  background: red; }
